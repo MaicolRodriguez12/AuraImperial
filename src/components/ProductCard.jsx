@@ -13,8 +13,7 @@ function ProductCard({ producto, onClick }) {
       className="bg-white border border-turqui/10 rounded-2xl overflow-hidden shadow-sm text-left"
     >
       <img
-        src={producto.imagenes[0]}
-        alt={producto.nombre}
+        src={import.meta.env.BASE_URL + producto.imagenes[0]}
         className="w-full aspect-square object-cover"
       />
       <div className="p-3">

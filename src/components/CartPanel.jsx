@@ -84,7 +84,7 @@ function CartPanel({ onClose }) {
           <div className="p-5 border-t border-turqui/10">
             <div className="flex justify-between items-center mb-4">
               <span className="font-body text-turqui font-medium">Total</span>
-              <span className="font-display text-xl text-dorado font-semibold">
+              <span className="font-display text-xl text-dorado font-semibold">a
                 {formatearPrecio(totalPrecio)}
               </span>
             </div>
