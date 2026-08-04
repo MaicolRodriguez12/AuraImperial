@@ -27,6 +27,20 @@ function ProductModal({ producto, onClose }) {
     onClose()
   }
 
+  function compartirProducto() {
+    const url = window.location.href
+    const texto = `Mira esta pieza de AuraImperial: ${producto.nombre} — ${formatearPrecio(producto.precio)}`
+
+    if (navigator.share) {
+      navigator.share({
+        title: producto.nombre,
+        text: texto,
+        url: url,
+      })
+    }
+  }
+  
+
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
       {/* Fondo oscuro semitransparente, clic para cerrar */}
@@ -37,13 +51,26 @@ function ProductModal({ producto, onClose }) {
 
       {/* Hoja del modal */}
       <div className="relative bg-blanco w-full sm:max-w-md sm:rounded-2xl rounded-t-3xl max-h-[90vh] overflow-y-auto">
-        {/* Botón cerrar */}
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-turqui/80 text-blanco text-lg flex items-center justify-center"
-        >
-          ✕
-        </button>
+        {/* Botones cerrar y compartir */}
+        <div className="absolute top-3 right-3 left-3 z-10 flex justify-between">
+          {typeof navigator.share === 'function' ? (
+            <button
+              onClick={compartirProducto}
+              className="w-9 h-9 rounded-full bg-turqui/80 text-blanco flex items-center justify-center"
+              aria-label="Compartir producto"
+            >
+              ↗
+            </button>
+          ) : (
+            <span />
+          )}
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-full bg-turqui/80 text-blanco text-lg flex items-center justify-center"
+          >
+            ✕
+          </button>
+        </div>
 
         {/* Carrusel */}
         <div className="relative">
