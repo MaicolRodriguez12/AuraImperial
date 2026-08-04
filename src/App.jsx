@@ -8,6 +8,7 @@ import CategoryFilter from './components/CategoryFilter'
 import { products } from './data/products'
 import WhatsAppHelpButton from './components/WhatsAppHelpButton'
 import Toast from './components/Toast'
+import Splash from './components/Splash'
 
 function App() {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null)
@@ -15,6 +16,7 @@ function App() {
   const [categoriaActiva, setCategoriaActiva] = useState('todos')
   const [toastVisible, setToastVisible] = useState(false)
   const [toastMensaje, setToastMensaje] = useState('')
+  const [mostrandoSplash, setMostrandoSplash] = useState(true)
 
   const categorias = useMemo(
     () => [...new Set(products.map((p) => p.categoria))],
@@ -30,6 +32,11 @@ function App() {
     setToastMensaje(mensaje)
     setToastVisible(true)
   }
+
+  if (mostrandoSplash) {
+    return <Splash onTerminar={() => setMostrandoSplash(false)} />
+  }
+  
   return (
     <div className="min-h-screen bg-blanco">
       <Header />

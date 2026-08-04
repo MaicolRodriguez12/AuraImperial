@@ -6,7 +6,7 @@ function Header() {
         alt="Aura Imperial"
         className="w-28 md:w-36 mx-auto mb-3 object-contain"
       />
-      <p className="font-body text-dorado-claro tracking-[0.3em] text-xs uppercase">
+      <p className="font-body text-dorado-claro tracking-[0.2em] text-xs uppercase">
         Oro laminado · Piezas únicas
       </p>
     </header>
