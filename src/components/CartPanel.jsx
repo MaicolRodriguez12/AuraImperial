@@ -10,7 +10,7 @@ function formatearPrecio(precio) {
 }
 
 function CartPanel({ onClose }) {
-  const { items, cambiarCantidad, quitarProducto, totalPrecio } = useCart()
+  const { items, cambiarCantidad, quitarProducto, totalPrecio, vaciarCarrito } = useCart()
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
@@ -89,13 +89,15 @@ function CartPanel({ onClose }) {
               </span>
             </div>
             <button
-            onClick={() => {
+              onClick={() => {
                 const link = generarLinkWhatsApp(items, totalPrecio)
                 window.open(link, '_blank')
-            }}
-            className="w-full bg-turqui text-blanco font-body font-medium py-3.5 rounded-xl active:bg-turqui-medio"
+                vaciarCarrito()
+                onClose()
+              }}
+              className="w-full bg-turqui text-blanco font-body font-medium py-3.5 rounded-xl active:bg-turqui-medio"
             >
-            Finalizar pedido por WhatsApp
+              Finalizar pedido por WhatsApp
             </button>
           </div>
         )}

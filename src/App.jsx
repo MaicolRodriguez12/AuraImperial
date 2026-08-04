@@ -7,11 +7,14 @@ import CartPanel from './components/CartPanel'
 import CategoryFilter from './components/CategoryFilter'
 import { products } from './data/products'
 import WhatsAppHelpButton from './components/WhatsAppHelpButton'
+import Toast from './components/Toast'
 
 function App() {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null)
   const [carritoAbierto, setCarritoAbierto] = useState(false)
   const [categoriaActiva, setCategoriaActiva] = useState('todos')
+  const [toastVisible, setToastVisible] = useState(false)
+  const [toastMensaje, setToastMensaje] = useState('')
 
   const categorias = useMemo(
     () => [...new Set(products.map((p) => p.categoria))],
@@ -23,6 +26,10 @@ function App() {
     return products.filter((p) => p.categoria === categoriaActiva)
   }, [categoriaActiva])
 
+  function mostrarToast(mensaje) {
+    setToastMensaje(mensaje)
+    setToastVisible(true)
+  }
   return (
     <div className="min-h-screen bg-blanco">
       <Header />
@@ -45,19 +52,26 @@ function App() {
         </div>
       </main>
 
-      {productoSeleccionado && (
-        <ProductModal
-          producto={productoSeleccionado}
-          onClose={() => setProductoSeleccionado(null)}
-        />
-      )}
+        {productoSeleccionado && (
+          <ProductModal
+            producto={productoSeleccionado}
+            onClose={() => setProductoSeleccionado(null)}
+            onAgregado={mostrarToast}
+          />
+        )}
       <WhatsAppHelpButton />
       <CartButton onClick={() => setCarritoAbierto(true)} />
 
       {carritoAbierto && (
         <CartPanel onClose={() => setCarritoAbierto(false)} />
       )}
-    </div>
+
+      <Toast
+        mensaje={toastMensaje}
+        visible={toastVisible}
+        onOcultar={() => setToastVisible(false)}
+      />
+          </div>
   )
 }
 

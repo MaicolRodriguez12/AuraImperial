@@ -9,7 +9,7 @@ function formatearPrecio(precio) {
   }).format(precio)
 }
 
-function ProductModal({ producto, onClose }) {
+function ProductModal({ producto, onClose, onAgregado }) {
   const [indiceImagen, setIndiceImagen] = useState(0)
   const [cantidad, setCantidad] = useState(1)
   const { agregarProducto } = useCart()
@@ -22,10 +22,13 @@ function ProductModal({ producto, onClose }) {
     setIndiceImagen((i) => (i === producto.imagenes.length - 1 ? 0 : i + 1))
   }
 
+  
   function handleAgregar() {
     agregarProducto(producto, cantidad)
+    onAgregado(`${producto.nombre} agregado al carrito`)
     onClose()
   }
+
 
   function compartirProducto() {
     const url = window.location.href
