@@ -39,7 +39,7 @@ function CartPanel({ onClose }) {
               {items.map((item) => (
                 <div key={item.id} className="flex gap-3 items-center">
                   <img
-                    src={item.imagenes[0]}
+                    src={import.meta.env.BASE_URL + item.imagenes[0]}
                     alt={item.nombre}
                     className="w-16 h-16 rounded-xl object-cover"
                   />
@@ -84,7 +84,7 @@ function CartPanel({ onClose }) {
           <div className="p-5 border-t border-turqui/10">
             <div className="flex justify-between items-center mb-4">
               <span className="font-body text-turqui font-medium">Total</span>
-              <span className="font-display text-xl text-dorado font-semibold">a
+              <span className="font-display text-xl text-dorado font-semibold">
                 {formatearPrecio(totalPrecio)}
               </span>
             </div>

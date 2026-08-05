@@ -14,28 +14,29 @@ export const products = [
   },
   {
     id: 2,
-    nombre: "Pulsera negra San Benito ",
-    //descripcionCorta: "Anillo delgado con circón.",
-    descripcionDetallada: "La Pulsera San Benito es una pieza que combina elegancia, protección y estilo en un diseño moderno y versátil. Elaborada completamente en oro laminado de alta calidad, destaca por su medalla central de San Benito y sus balines de 4 mm, que le aportan una presencia sofisticada y un acabado impecable. Ideal para uso diario, esta pulsera ofrece resistencia, brillo duradero y un diseño que complementa cualquier estilo, convirtiéndose en un accesorio perfecto para regalar o llevar en todo momento.",
-    precio: 45000,
-    categoria: "Pulseras",
-    imagenes: [
-      "images/2.jpg",
-      "images/2-2.jpg",
-      "images/san_benito_mano.jpg",
-    ],
-  },
-  {
-    id: 3,
-    nombre: "Pulsera Tres Carriles",
-    //descripcionCorta: "Aretes tipo gota, esmalte azul.",
-    descripcionDetallada: "Nuestra Pulsera Tres Carriles destaca por su diseño artesanal y elegante, ideal para quienes buscan un accesorio con personalidad y acabados de alta calidad. Elaborada en oro laminado y tejida a mano con hilo chino de alta resistencia, ofrece una combinación perfecta entre durabilidad, comodidad y estilo. Su diseño de tres carriles incorpora balines de 6 mm y 3 mm, creando un efecto sofisticado que resalta el brillo del oro laminado y la convierte en una pieza versátil para cualquier ocasión.",
-    precio: 38000,
-    categoria: "Pulseras",
-    imagenes: [
-      "images/3.jpg",
-      "images/3-2.jpg",
-      "images/tres_carriles_mano.jpg",
+    nombre: "Pulsera Imperial Rolex — Doble Carril",
+    categoria: "pulseras",
+    descripcionCorta: "Pulsera tejida en oro laminado.",
+    descripcionDetallada: "Elaborada en oro laminado de alta calidad, esta pulsera está tejida a mano con hilo chino de alta resistencia...",
+    precio: 85000,
+    variantes: [
+      {
+        color: "Negro",
+        colorHex: "#1A1A1A",
+        imagenes: [
+          "images/2.jpg",
+          "images/2-2.jpg",
+        ],
+      },
+      {
+        color: "Dorado",
+        colorHex: "#C9A227",
+        imagenes: [
+          "images/3.jpg",
+          "images/3-2.jpg",
+          "images/tres_carriles_mano.jpg",
+        ],
+      },
     ],
   },
   {
@@ -62,32 +63,34 @@ export const products = [
       "images/5-2.jpg",
     ],
   },
-    {
+  {
     id: 6,
-    nombre: "Pulsera Tres Carriles",
-    //descripcionCorta: "Aretes tipo gota, esmalte azul.",
-    descripcionDetallada: "Nuestra Pulsera Tres Carriles destaca por su diseño artesanal y elegante, ideal para quienes buscan un accesorio con personalidad y acabados de alta calidad. Elaborada en oro laminado y tejida a mano con hilo chino de alta resistencia, ofrece una combinación perfecta entre durabilidad, comodidad y estilo. Su diseño de tres carriles incorpora balines de 6 mm y 3 mm, creando un efecto sofisticado que resalta el brillo del oro laminado y la convierte en una pieza versátil para cualquier ocasión.",
-    precio: 38000,
-    categoria: "Pulseras",
-    imagenes: [
-      "images/6.jpg",
-      "images/6-2.jpg",
+    nombre: "Pulsera Imperial Rolex — Doble Carril",
+    categoria: "pulseras",
+    descripcionCorta: "Pulsera tejida en oro laminado.",
+    descripcionDetallada: "Elaborada en oro laminado de alta calidad, esta pulsera está tejida a mano con hilo chino de alta resistencia...",
+    precio: 85000,
+    variantes: [
+      {
+        color: "Negro",
+        colorHex: "#1A1A1A",
+        imagenes: [
+          "images/6.jpg",
+          "images/6-2.jpg",
+        ],
+      },
+      {
+        color: "Rojo",
+        colorHex: "#ec202b",
+        imagenes: [
+          "images/7.jpg",
+          "images/7-2.jpg",
+        ],
+      },
     ],
   },
     {
     id: 7,
-    nombre: "Pulsera Tres Carriles",
-    //descripcionCorta: "Aretes tipo gota, esmalte azul.",
-    descripcionDetallada: "Nuestra Pulsera Tres Carriles destaca por su diseño artesanal y elegante, ideal para quienes buscan un accesorio con personalidad y acabados de alta calidad. Elaborada en oro laminado y tejida a mano con hilo chino de alta resistencia, ofrece una combinación perfecta entre durabilidad, comodidad y estilo. Su diseño de tres carriles incorpora balines de 6 mm y 3 mm, creando un efecto sofisticado que resalta el brillo del oro laminado y la convierte en una pieza versátil para cualquier ocasión.",
-    precio: 38000,
-    categoria: "Pulseras",
-    imagenes: [
-      "images/7.jpg",
-      "images/7-2.jpg",
-    ],
-  },
-    {
-    id: 8,
     nombre: "Pulsera Tres Carriles",
     //descripcionCorta: "Aretes tipo gota, esmalte azul.",
     descripcionDetallada: "Nuestra Pulsera Tres Carriles destaca por su diseño artesanal y elegante, ideal para quienes buscan un accesorio con personalidad y acabados de alta calidad. Elaborada en oro laminado y tejida a mano con hilo chino de alta resistencia, ofrece una combinación perfecta entre durabilidad, comodidad y estilo. Su diseño de tres carriles incorpora balines de 6 mm y 3 mm, creando un efecto sofisticado que resalta el brillo del oro laminado y la convierte en una pieza versátil para cualquier ocasión.",

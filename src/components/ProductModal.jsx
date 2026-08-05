@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useCart } from '../context/CartContext'
 
 function formatearPrecio(precio) {
@@ -9,26 +9,43 @@ function formatearPrecio(precio) {
   }).format(precio)
 }
 
-function ProductModal({ producto, onClose, onAgregado }) {
+function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
+  const [varianteIndex, setVarianteIndex] = useState(varianteInicial)
   const [indiceImagen, setIndiceImagen] = useState(0)
   const [cantidad, setCantidad] = useState(1)
   const { agregarProducto } = useCart()
 
+  const tieneVariantes = Array.isArray(producto.variantes)
+  const imagenes = tieneVariantes
+    ? producto.variantes[varianteIndex].imagenes
+    : producto.imagenes
+
+  useEffect(() => {
+    setIndiceImagen(0)
+  }, [varianteIndex])
+
   function imagenAnterior() {
-    setIndiceImagen((i) => (i === 0 ? producto.imagenes.length - 1 : i - 1))
+    setIndiceImagen((i) => (i === 0 ? imagenes.length - 1 : i - 1))
   }
 
   function imagenSiguiente() {
-    setIndiceImagen((i) => (i === producto.imagenes.length - 1 ? 0 : i + 1))
+    setIndiceImagen((i) => (i === imagenes.length - 1 ? 0 : i + 1))
   }
 
-  
   function handleAgregar() {
-    agregarProducto(producto, cantidad)
-    onAgregado(`${producto.nombre} agregado al carrito`)
+    const productoParaCarrito = tieneVariantes
+      ? {
+          ...producto,
+          id: `${producto.id}-${producto.variantes[varianteIndex].color}`,
+          nombre: `${producto.nombre} (${producto.variantes[varianteIndex].color})`,
+          imagenes: producto.variantes[varianteIndex].imagenes,
+        }
+      : producto
+
+    agregarProducto(productoParaCarrito, cantidad)
+    onAgregado(`${productoParaCarrito.nombre} agregado al carrito`)
     onClose()
   }
-
 
   function compartirProducto() {
     const url = window.location.href
@@ -42,19 +59,15 @@ function ProductModal({ producto, onClose, onAgregado }) {
       })
     }
   }
-  
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
-      {/* Fondo oscuro semitransparente, clic para cerrar */}
       <div
         className="absolute inset-0 bg-turqui/60"
         onClick={onClose}
       />
 
-      {/* Hoja del modal */}
       <div className="relative bg-blanco w-full sm:max-w-md sm:rounded-2xl rounded-t-3xl max-h-[90vh] overflow-y-auto">
-        {/* Botones cerrar y compartir */}
         <div className="absolute top-3 right-3 left-3 z-10 flex justify-between">
           {typeof navigator.share === 'function' ? (
             <button
@@ -75,14 +88,13 @@ function ProductModal({ producto, onClose, onAgregado }) {
           </button>
         </div>
 
-        {/* Carrusel */}
         <div className="relative">
           <img
-            src={producto.imagenes[indiceImagen]}
+            src={import.meta.env.BASE_URL + imagenes[indiceImagen]}
             alt={producto.nombre}
             className="w-full aspect-square object-cover"
           />
-          {producto.imagenes.length > 1 && (
+          {imagenes.length > 1 && (
             <>
               <button
                 onClick={imagenAnterior}
@@ -97,7 +109,7 @@ function ProductModal({ producto, onClose, onAgregado }) {
                 ›
               </button>
               <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5">
-                {producto.imagenes.map((_, i) => (
+                {imagenes.map((_, i) => (
                   <span
                     key={i}
                     className={`w-1.5 h-1.5 rounded-full ${
@@ -110,19 +122,39 @@ function ProductModal({ producto, onClose, onAgregado }) {
           )}
         </div>
 
-        {/* Info del producto */}
         <div className="p-5">
           <h2 className="font-display text-2xl text-turqui font-semibold">
             {producto.nombre}
           </h2>
-          <p className="font-body text-2xl text-dorado font-semibold mt-2 mb-4">
+          <p className="font-body text-2xl text-dorado font-semibold mt-2 mb-3">
             {formatearPrecio(producto.precio)}
           </p>
+
+          {tieneVariantes && (
+            <div className="mb-4">
+              <span className="font-body text-sm text-turqui/70 block mb-2">
+                Color: <span className="font-semibold text-turqui">{producto.variantes[varianteIndex].color}</span>
+              </span>
+              <div className="flex gap-2">
+                {producto.variantes.map((variante, index) => (
+                  <button
+                    key={variante.color}
+                    onClick={() => setVarianteIndex(index)}
+                    className={`w-8 h-8 rounded-full border-2 ${
+                      index === varianteIndex ? 'border-dorado' : 'border-turqui/20'
+                    }`}
+                    style={{ backgroundColor: variante.colorHex }}
+                    aria-label={variante.color}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           <p className="font-body text-sm text-turqui/70 leading-relaxed mb-6">
             {producto.descripcionDetallada}
           </p>
 
-          {/* Selector de cantidad */}
           <div className="flex items-center justify-between mb-4">
             <span className="font-body text-turqui font-medium">Cantidad</span>
             <div className="flex items-center gap-3">
