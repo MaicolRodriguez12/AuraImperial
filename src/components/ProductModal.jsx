@@ -13,6 +13,7 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
   const [varianteIndex, setVarianteIndex] = useState(varianteInicial)
   const [indiceImagen, setIndiceImagen] = useState(0)
   const [cantidad, setCantidad] = useState(1)
+  const [inicioX, setInicioX] = useState(null)
   const { agregarProducto } = useCart()
 
   const tieneVariantes = Array.isArray(producto.variantes)
@@ -30,6 +31,26 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
 
   function imagenSiguiente() {
     setIndiceImagen((i) => (i === imagenes.length - 1 ? 0 : i + 1))
+  }
+
+  function manejarInicioToque(e) {
+    setInicioX(e.touches[0].clientX)
+  }
+
+  function manejarFinToque(e) {
+    if (inicioX === null) return
+
+    const finX = e.changedTouches[0].clientX
+    const diferencia = inicioX - finX
+    const distanciaMinima = 50
+
+    if (diferencia > distanciaMinima) {
+      imagenSiguiente()
+    } else if (diferencia < -distanciaMinima) {
+      imagenAnterior()
+    }
+
+    setInicioX(null)
   }
 
   function handleAgregar() {
@@ -88,11 +109,16 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
           </button>
         </div>
 
-        <div className="relative">
+        <div
+          className="relative"
+          onTouchStart={manejarInicioToque}
+          onTouchEnd={manejarFinToque}
+        >
           <img
             src={import.meta.env.BASE_URL + imagenes[indiceImagen]}
             alt={producto.nombre}
-            className="w-full aspect-square object-cover"
+            className="w-full aspect-square object-cover select-none"
+            draggable="false"
           />
           {imagenes.length > 1 && (
             <>
