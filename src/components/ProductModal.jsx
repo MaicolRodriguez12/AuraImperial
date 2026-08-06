@@ -177,7 +177,7 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
             </div>
           )}
 
-          <p className="font-body text-sm text-turqui/70 leading-relaxed mb-6">
+          <p className="font-body text-sm text-turqui/70 leading-relaxed mb-6 whitespace-pre-line">
             {producto.descripcionDetallada}
           </p>
 
