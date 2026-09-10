@@ -1,10 +1,10 @@
 export const products = [
   {
     id: 1,
-    nombre: "Pulsera Corona Rolex Dos Carriles",
+    nombre: "Pulsera Corona Rolex Dos Carriles.",
     //descripcionCorta: "Pulsera doble carril balines 3mm y erraje rolex en oro laminado 18k.",
     descripcionDetallada: "Tejida en hilo chino con diseño de dos carriles, incorpora veintiocho balines de 4 mm en oro laminado y un herraje central de corona estilo Rolex de 19 mm. Sus extremos incluyen dos balines de 3 mm. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
-    precio: 229900,
+    precio: 246900,
     categoria: "Pulseras",
     imagenes: [
       "images/1.jpg",
@@ -18,7 +18,7 @@ export const products = [
     categoria: "Pulseras",
     //descripcionCorta: "Pulsera tejida en oro laminado.",
     descripcionDetallada: "Elaborada en hilo chino con tejido macramé de tres carriles, nueve balines lisos de 6 mm y dieciséis balines de 4 mm en oro laminado. Sus extremos incluyen dos balines de 3 mm que aportan un detalle adicional al diseño. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
-    precio: 269900,
+    precio: 236900,
     variantes: [
       {
         color: "Negro",
@@ -44,7 +44,7 @@ export const products = [
     nombre: "Pulsera San Benito",
     //descripcionCorta: "Aretes tipo gota, esmalte azul.",
     descripcionDetallada: "Tejida en hilo chino con estilo macramé, incorpora doce balines de 5 mm en oro laminado dentro de su diseño y una medalla central de San Benito de 19 mm. Sus extremos incluyen dos balines de 3 mm como detalle final. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
-    precio:210000,
+    precio: 183900,
     categoria: "Pulseras",
     imagenes: [
       "images/4.jpg",
@@ -56,7 +56,7 @@ export const products = [
     nombre: "Pulsera Corona Rolex Imperial",
     //descripcionCorta: "Aretes tipo gota, esmalte azul.",
     descripcionDetallada: "Nuestra Pulsera Tres Carriles destaca por su diseño artesanal y elegante, ideal para quienes buscan un accesorio con personalidad y acabados de alta calidad. Elaborada en oro laminado y tejida a mano con hilo chino de alta resistencia, ofrece una combinación perfecta entre durabilidad, comodidad y estilo. Su diseño de tres carriles incorpora balines de 6 mm y 3 mm, creando un efecto sofisticado que resalta el brillo del oro laminado y la convierte en una pieza versátil para cualquier ocasión. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
-    precio: 110000,
+    precio: 94900,
     categoria: "Pulseras",
     imagenes: [
       "images/5.jpg",
@@ -69,7 +69,7 @@ export const products = [
     categoria: "Pulseras",
     //descripcionCorta: "Pulsera tejida en oro laminado.",
     descripcionDetallada: "Elaborada en hilo chino con tejido macramé, incorpora ocho balines de 5 mm en oro laminado y una medalla central de la Virgen de Guadalupe de 15 mm. Sus extremos llevan dos balines de 3 mm que complementan el diseño. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente. ",
-    precio: 160000,
+    precio: 139900,
     variantes: [
       {
         color: "Dorado",
@@ -94,7 +94,7 @@ export const products = [
     nombre: "Pulsera San Benito Siete Nudos",
     //descripcionCorta: "Aretes tipo gota, esmalte azul.",
     descripcionDetallada: "Elaborada en hilo chino rojo con siete nudos, cinco balines de 4 mm en oro laminado y una medalla de San Benito de 19 mm como detalle central. Incluye dos balines adicionales de 4 mm en sus extremos. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.  ",
-    precio: 120000,
+    precio: 112900,
     categoria: "Pulseras",
     imagenes: [
       "images/8.jpg",
@@ -106,7 +106,7 @@ export const products = [
     nombre: "Pulsera Siete Nudos de Protección",
     //descripcionCorta: "Aretes tipo gota, esmalte azul.",
     descripcionDetallada: "Elaborada en hilo chino con siete nudos, separados por seis balines de 4 mm en oro laminado. Sus extremos incluyen dos balines de 3 mm que complementan el diseño. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
-    precio: 50000,
+    precio: 59900,
     categoria: "Pulseras",
     imagenes: [
       "images/9.jpg",
@@ -118,7 +118,7 @@ export const products = [
     nombre: "Pulsera Símbolo de Fé",
     //descripcionCorta: "Aretes tipo gota, esmalte azul.",
     descripcionDetallada: "Elaborada en hilo chino con tejido macramé, incorpora cuatro balines de 4 mm y dos balines de 6 mm en oro laminado dentro de su diseño. Su pieza central es un herraje de Fé de 10 mm y en los extremos incluye dos balines adicionales de 4 mm. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
-    precio: 125000,
+    precio: 109900,
     categoria: "Pulseras",
     imagenes: [
       "images/13.jpg",
