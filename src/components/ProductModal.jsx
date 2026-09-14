@@ -17,9 +17,10 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
   const { agregarProducto } = useCart()
 
   const tieneVariantes = Array.isArray(producto.variantes)
-  const imagenes = tieneVariantes
-    ? producto.variantes[varianteIndex].imagenes
-    : producto.imagenes
+  const varianteActiva = tieneVariantes ? producto.variantes[varianteIndex] : null
+  const imagenes = tieneVariantes ? varianteActiva.imagenes : producto.imagenes
+  const precioMostrado = tieneVariantes ? varianteActiva.precio : producto.precio
+  const esVariantePorColor = tieneVariantes && Boolean(producto.variantes[0].colorHex)
 
   useEffect(() => {
     setIndiceImagen(0)
@@ -54,12 +55,15 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
   }
 
   function handleAgregar() {
+    const etiquetaVariante = varianteActiva?.color || varianteActiva?.nombre
+
     const productoParaCarrito = tieneVariantes
       ? {
           ...producto,
-          id: `${producto.id}-${producto.variantes[varianteIndex].color}`,
-          nombre: `${producto.nombre} (${producto.variantes[varianteIndex].color})`,
-          imagenes: producto.variantes[varianteIndex].imagenes,
+          id: `${producto.id}-${etiquetaVariante}`,
+          nombre: `${producto.nombre} (${etiquetaVariante})`,
+          precio: varianteActiva.precio,
+          imagenes: varianteActiva.imagenes,
         }
       : producto
 
@@ -70,7 +74,7 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
 
   function compartirProducto() {
     const url = window.location.href
-    const texto = `Mira esta pieza de AuraImperial: ${producto.nombre} — ${formatearPrecio(producto.precio)}`
+    const texto = `Mira esta pieza de AuraImperial: ${producto.nombre} — ${formatearPrecio(precioMostrado)}`
 
     if (navigator.share) {
       navigator.share({
@@ -153,13 +157,13 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
             {producto.nombre}
           </h2>
           <p className="font-body text-2xl text-dorado font-semibold mt-2 mb-3">
-            {formatearPrecio(producto.precio)}
+            {formatearPrecio(precioMostrado)}
           </p>
 
-          {tieneVariantes && (
+          {tieneVariantes && esVariantePorColor && (
             <div className="mb-4">
               <span className="font-body text-sm text-turqui/70 block mb-2">
-                Color: <span className="font-semibold text-turqui">{producto.variantes[varianteIndex].color}</span>
+                Color: <span className="font-semibold text-turqui">{varianteActiva.color}</span>
               </span>
               <div className="flex gap-2">
                 {producto.variantes.map((variante, index) => (
@@ -172,6 +176,27 @@ function ProductModal({ producto, varianteInicial = 0, onClose, onAgregado }) {
                     style={{ backgroundColor: variante.colorHex }}
                     aria-label={variante.color}
                   />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {tieneVariantes && !esVariantePorColor && (
+            <div className="mb-4">
+              <span className="font-body text-sm text-turqui/70 block mb-2">Presentación</span>
+              <div className="flex gap-2">
+                {producto.variantes.map((variante, index) => (
+                  <button
+                    key={variante.nombre}
+                    onClick={() => setVarianteIndex(index)}
+                    className={`font-body text-sm px-4 py-2 rounded-xl border ${
+                      index === varianteIndex
+                        ? 'bg-turqui text-blanco border-turqui'
+                        : 'bg-turqui/5 text-turqui border-turqui/20'
+                    }`}
+                  >
+                    {variante.nombre}
+                  </button>
                 ))}
               </div>
             </div>

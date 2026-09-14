@@ -221,4 +221,81 @@ export const products = [
     ],
   },
 
+{
+  id: 15,
+  nombre: "Pulsera Infinito",
+  categoria: "Parejas",
+  descripcionCorta: "Edición especial Amor y Amistad.",
+  descripcionDetallada: "Un símbolo de vínculo que no tiene fin. Nuestra Pulsera Infinito llega como edición especial para esta temporada de Amor y Amistad. Disponible individual o en pareja, el detalle perfecto para llevar contigo o compartir con alguien especial.",
+  variantes: [
+    {
+      nombre: "En pareja",
+      precio: 135000,
+      imagenes: [
+        "images/inf1.png",
+        "images/infinito2.png",
+        "images/infinito3.png",
+      ],
+    },
+        {
+      nombre: "Individual",
+      precio: 76000,
+      imagenes: [
+        "images/inf1.png",
+        "images/infinito2.png",
+        "images/infinito3.png",
+      ],
+    },
+  ],
+},
+{
+  id: 16,
+  nombre: "Macramé de los 3 deseos",
+  categoria: "Parejas",
+  descripcionCorta: "Edición especial Amor y Amistad.",
+  descripcionDetallada: "Macramé de los 3 deseos. \n\n Una pulsera, tres deseos y un significado especial.\n - Que cada día estén más unidos.\n - Protegerse el uno al otro. \n - Que cada momento juntos se convierta en un recuerdo. \n\n Un detalle para llevar contigo y recordar ese vínculo especial. \n Disponible individual o en pareja",
+  variantes: [
+    {
+      nombre: "En pareja",
+      precio: 75000,
+      imagenes: [
+        "images/tejida1.png",
+        "images/tejida2.png",
+      ],
+    },
+        {
+      nombre: "Individual",
+      precio: 45000,
+      imagenes: [
+        "images/tejida1.png",
+        "images/tejida2.png",
+      ],
+    },
+  ],
+},
+{
+  id: 17,
+  nombre: "Hilo de los 3 deseos",
+  categoria: "Parejas",
+  descripcionCorta: "Edición especial Amor y Amistad.",
+  descripcionDetallada: "Hilo de los 3 deseos. \n\n Una pulsera, tres deseos y un significado especial.\n - Que cada día estén más unidos.\n - Protegerse el uno al otro. \n - Que cada momento juntos se convierta en un recuerdo. \n\n Un detalle para llevar contigo y recordar ese vínculo especial. \n Disponible individual o en pareja",
+  variantes: [
+    {
+      nombre: "En pareja",
+      precio: 65000,
+      imagenes: [
+        "images/hilo3.png",
+        "images/hilo2.png",
+      ],
+    },
+        {
+      nombre: "Individual",
+      precio: 40000,
+      imagenes: [
+        "images/hilo3.png",
+        "images/hilo2.png",
+      ],
+    },
+  ],
+},
 ]
