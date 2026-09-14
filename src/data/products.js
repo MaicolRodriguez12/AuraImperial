@@ -27,10 +27,12 @@ export const products = [
           "images/2.jpg",
           "images/2-2.jpg",
         ],
+        precio: 236900
       },
       {
         color: "Dorado",
         colorHex: "#C9A227",
+        precio: 236900,
         imagenes: [
           "images/3.jpg",
           "images/3-2.jpg",
@@ -73,6 +75,7 @@ export const products = [
     variantes: [
       {
         color: "Dorado",
+        precio: 139900,
         colorHex: "#080808",
         imagenes: [
           "images/6.jpg",
@@ -82,6 +85,7 @@ export const products = [
       {
         color: "Rojo",
         colorHex: "#ec202b",
+        precio: 139900,
         imagenes: [
           "images/7.jpg",
           "images/7-2.jpg",
@@ -136,6 +140,7 @@ export const products = [
       {
         color: "Dorado",
         colorHex: "#C9A227",
+        precio: 55000,
         imagenes: [
           "images/12.jpg",
           "images/12-2.jpg",
@@ -144,6 +149,7 @@ export const products = [
       {
         color: "Celeste",
         colorHex: "#20cdec",
+        precio: 55000,
         imagenes: [
           "images/11.jpg",
           "images/11-2.jpg",
@@ -152,6 +158,7 @@ export const products = [
       {
         color: "Azul",
         colorHex: "#202eec",
+        precio: 55000,
         imagenes: [
           "images/10.jpg",
           "images/10-2.jpg",
