@@ -296,6 +296,19 @@ export const products = [
     ],
   },
 
+  {
+    id: 20,
+    nombre: "Pulsera Balines desendientes",
+    //descripcionCorta: "Pulsera doble carril balines 3mm y erraje rolex en oro laminado 18k.",
+    descripcionDetallada: "Elaborada en hilo chino azul, incorpora un balín central de 6 mm en oro laminado, acompañado de seis balines distribuidos simétricamente: dos de 2.5 mm, dos de 3 mm, dos de 4 mm y dos de 5 mm. Su diseño finaliza con dos balines adicionales de 2.5 mm en sus punteras, logrando una composición equilibrada y elegante. \n\n Nota: El color del hilo puede personalizarse según la preferencia del cliente.",
+    precio: 80000,
+    categoria: "Pulseras",
+    imagenes: [
+      "images/azul1.jpg",
+      "images/azul2.jpg",
+    ],
+  },
+
    /*{
     id: 20,
     nombre: "Pulsera Infinito neopreno",
@@ -353,7 +366,7 @@ export const products = [
   },*/
 
   {
-    id: 20,
+    id: 21,
     nombre: "Pulsera Infinito",
     categoria: "Parejas",
     descripcionCorta: "Edición especial Amor y Amistad.",
@@ -380,7 +393,7 @@ export const products = [
     ],
   },
   {
-    id: 21,
+    id: 22,
     nombre: "Macramé de los 3 deseos",
     categoria: "Parejas",
     descripcionCorta: "Edición especial Amor y Amistad.",
@@ -405,7 +418,7 @@ export const products = [
     ],
   },
   {
-    id: 22,
+    id: 23,
     nombre: "Hilo de los 3 deseos",
     categoria: "Parejas",
     descripcionCorta: "Edición especial Amor y Amistad.",
